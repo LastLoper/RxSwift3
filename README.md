@@ -1,5 +1,5 @@
 # GitHub
-- RxSwift 3 샘플
+- RxSwift Playground 연습장
 
 ## 스크린샷
 <img src="" alt="Git hub"/>
