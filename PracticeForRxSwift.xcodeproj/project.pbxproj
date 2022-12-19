@@ -30,6 +30,8 @@
 		515B42032939DEA20018C374 /* Observable.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = Observable.playground; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
 		515B42042939F99F0018C374 /* Traits.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = Traits.playground; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
 		515B4205293A08ED0018C374 /* Subjects.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = Subjects.playground; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
+		5180B4892950551500C22054 /* FilteringOperator.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = FilteringOperator.playground; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
+		5180B48A295062A700C22054 /* TransformingOperator.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = TransformingOperator.playground; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
 		C7F0756900EDBFE211D744D9 /* Pods_PracticeForRxSwift.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_PracticeForRxSwift.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -59,6 +61,8 @@
 				515B42032939DEA20018C374 /* Observable.playground */,
 				515B42042939F99F0018C374 /* Traits.playground */,
 				515B4205293A08ED0018C374 /* Subjects.playground */,
+				5180B4892950551500C22054 /* FilteringOperator.playground */,
+				5180B48A295062A700C22054 /* TransformingOperator.playground */,
 				515B41EE2939DE070018C374 /* PracticeForRxSwift */,
 				515B41ED2939DE070018C374 /* Products */,
 				AB91EB9DCC8CF77412FC69BF /* Pods */,
