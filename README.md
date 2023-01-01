@@ -204,4 +204,63 @@ Observable.of(Date())
         print($0)
     })
     .disposed(by: disposeBag)
+    
+/*
+ 필터링 연산자 이해를 위한 예제
+ 숫자를 11자리 입력했을 때 전화번호 양식으로 변환하여 출력하는 예제
+ */
+print("================== 전화번호 11자리 ==================")
+let input = PublishSubject<Int?>()
+
+let list: [Int] = [1]
+
+input
+    .flatMap {
+        $0 == nil ? Observable.empty() : Observable.just($0)
+    }
+    .map { value in
+        //flatMap을 지나온 값은 Optional이므로 값을 강제로 보장
+        value!
+    }
+    .skip(while: {
+        //0이 나올때까지 Skip
+        //0 != 0 은 false이므로 다음 값을 출력        
+        $0 != 0
+    })
+    .take(11)           //0부터 시작한다면, 11자리까지만 받는다.
+    .toArray()          //Single타입으로 변환된 배열로 만들지만.
+    .asObservable()     //다시 Observable타입으로 변환.
+    .map {
+        //각 배열의 요소들(Int)을 String으로 변환해서
+        //String으로 변환된 요소들을 가진 배열로 변환
+        $0.map { "\($0)" }
+    }
+    .map { numbers in
+        //[String]인 숫자 묶음에,
+        var numberList = numbers
+        numberList.insert("-", at: 3)       //3번째 위치에 -삽입 => 010-
+        numberList.insert("-", at: 8)       //8번째 위치에 -삽입 => 010-1234-
+        let number = numberList.reduce(" ", +)  //각각의 String을 더한다.
+        return number
+    }
+    .subscribe(onNext: {
+        print($0)
+    })
+    .disposed(by: disposeBag)
+
+input.onNext(10)
+input.onNext(0)
+input.onNext(nil)
+input.onNext(1)
+input.onNext(0)
+input.onNext(5)
+input.onNext(2)
+input.onNext(8)
+input.onNext(7)
+input.onNext(6)
+input.onNext(7)
+input.onNext(nil)
+input.onNext(4)
+input.onNext(1)
+input.onNext(3)    
 ```
