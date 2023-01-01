@@ -5,17 +5,19 @@ import RxSwift
 //just => 1개의 요소만 방출하는 오퍼레이터
 //단 1개의 Observable Sequence가 만들어진다.
 print("## just")
-Observable<Int>.just(1)
 
 //of -> 1개 이상의 이벤트, 요소를 넣을 수 있다. 쉼표로 구분
 //각 요소를 순차적을 방출하는 Observable Sequence가 만들어진다.
 print("## of 1")
 Observable<Int>.of(1, 2, 3, 4, 5)
+    .subscribe(onNext: {
+        print($0)
+    })
 
 //Observable은 타입추론을 통해 Sequence를 생성한다.
 //아래와 같은 경우 1개의 Array를 방출하는, just와 같은 기능을 한다.
 print("## of 2")
-Observable.of([1, 2, 3, 4, 5])
+Observable<Array>.of([1, 2, 3, 4, 5])
     .subscribe(onNext: {
         print($0)
     })
@@ -65,9 +67,9 @@ Observable.of(1, 2, 3)
 //onCompleted 외에는 아무런 값도 방출하지 않는다.
 print("## empty 1")
 Observable.empty()
-    .subscribe {
+    .subscribe(onNext: {
         print($0)
-    }
+    })
 
 //Void 타입을 지정해주면 그저 완료되었다는, Completed가 출력된다.
 //언제 쓸 수 있을까?
@@ -119,6 +121,7 @@ Observable.of(1, 2, 3)
         print($0)
     })
     .dispose()      //구독을 취소
+
 
 //DisposeBag -> 방출된 이벤트를 하나로 모아 일괄 구독 취소하는.. 개념?
 //DisposeBag이 할당 해제될때 모든 Dispose 역시 메모리에서 날려버린다.?
